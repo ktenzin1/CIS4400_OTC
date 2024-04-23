@@ -57,11 +57,11 @@ II. Give the requirements and any missing requirements you have found
 
 -  Money Flow Index (MFI): This is a momentum indicator that uses both price and volume to measure buying and selling pressure. It’s also known as the volume-weighted RSI. 
 
--  Rate of Change:
-
+-  Rate of Change: This is a pure momentum oscillator that measures the percent change in price from one period to the next. In general, prices are rising as long as the ROC remains positive. Conversely, prices are falling when the ROC is negative. 
+  
 -  Relative Strength Index (RSI): This measures the speed and change of price movements. RSI oscillates between zero and 100. Traditionally, an RSI above 70 is considered overbought, and an RSI below 30 is considered oversold.
 
--  Volume:
+-  Volume: 
   
 -  Stochastic Oscillator: This momentum indicator compares a particular closing price of a security to a range of its prices over a certain period of time. The sensitivity of the oscillator to market movements is reducible by adjusting that time period or by taking a moving average of the result. 
 
