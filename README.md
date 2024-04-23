@@ -88,8 +88,12 @@ The data sources that you are going to use and the metadata associated with them
 5)	Methods
 In this section, we will highlight some of the key tools and elements of our tech stack that we will be using for this project. As we learn and build upon our skills during this program, we hope to add additional tools to this section and improve upon some of our initial assumptions.
 
-6)	Data Tools
+6)	Data Tools 
 Data Storage: What are the data storages that you are going to use.
+For data storage, we are using Microsoft Azure Blob container.
+First we set up the adaptor in Google Colab. Next, we created a container named otcgroup6 in Azure Blob. Then we copied the connection string from the access keys in Azure to the Google Colab workstation. Those three are needed for the data ingestion.
+We then uploaded the downloaded zip data file to Google Drive to make ingestion into Azure easier.
+Using the python script, the zip file from Google Drive was successfully uploaded into Azure Blob.  
  
 Data Processing: How are you going to process/ingest the data? 
  
