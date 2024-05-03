@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="OTC Market Transaction Data" id="LogicalDesign-683" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="OTC Market Transaction Data" >
+		<table name="DIM_Closing_Best_Ask_Info" prior="Closing_Best_Ask_Info" >
+			<column name="DIM_Closing_Best_Ask_Info_ID" prior="Closing_Best_Ask_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="BestAsk_Source" type="VARCHAR" jt="12" />
+			<index name="pk_Closing_Best_Ask_Info" unique="PRIMARY_KEY" >
+				<column name="DIM_Closing_Best_Ask_Info_ID" />
+			</index>
+		</table>
+		<table name="DIM_Closing_Best_Bid_Info" prior="Closing_Best_Bid_Info" >
+			<column name="DIM_Closing_Best_Bid_Info_ID" prior="Closing_Best_Bid_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="BestBid_Source" type="VARCHAR" jt="12" />
+			<index name="pk_Closing_Best_Bid_Info" unique="PRIMARY_KEY" >
+				<column name="DIM_Closing_Best_Bid_Info_ID" />
+			</index>
+		</table>
+		<table name="DIM_Date" prior="Date" >
+			<column name="DIM_Date_ID" prior="Date_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Date_original_format" type="VARCHAR" jt="12" />
+			<column name="Date_iso_format" type="DATE" jt="91" />
+			<column name="year" type="VARCHAR" jt="12" />
+			<column name="month" type="VARCHAR" jt="12" />
+			<column name="quarter" type="VARCHAR" jt="12" />
+			<column name="day_number" type="INT" jt="4" />
+			<column name="monthName" type="CHAR" length="100" jt="1" />
+			<column name="day_name" type="CHAR" length="100" jt="1" />
+			<index name="pk_Date" unique="PRIMARY_KEY" >
+				<column name="DIM_Date_ID" />
+			</index>
+		</table>
+		<table name="DIM_Location" prior="Entity_0" >
+			<column name="DIM_Location_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Country" type="CHAR" length="100" jt="1" />
+			<column name="State" type="CHAR" length="100" jt="1" />
+			<index name="pk_DIM_Location" unique="PRIMARY_KEY" >
+				<column name="DIM_Location_ID" />
+			</index>
+			<index name="unq_Country" unique="UNIQUE_INDEX" >
+				<column name="Country" />
+			</index>
+		</table>
+		<table name="DIM_OTC_Tier_Info" prior="OTC_Tier_Info" >
+			<column name="DIM_OTC_Tier_Info_ID" prior="OTC_Tier_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="OTC_Tier_Name" type="VARCHAR" jt="12" />
+			<column name="DAD/PAL_S" type="VARCHAR" jt="12" />
+			<column name="Tier_ID" type="INT" jt="4" />
+			<index name="pk_OTC_Tier_Info" unique="PRIMARY_KEY" >
+				<column name="DIM_OTC_Tier_Info_ID" />
+			</index>
+		</table>
+		<table name="DIM_Security" prior="Security" >
+			<column name="DIM_Security_ID" prior="Security_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Company_ID" type="INT" jt="4" />
+			<column name="CUSIP_No" type="CHAR" length="100" jt="1" />
+			<column name="Issue" type="CHAR" length="100" jt="1" />
+			<column name="Security_Type" type="VARCHAR" jt="12" />
+			<column name="Security_Class" type="CHAR" length="100" jt="1" />
+			<column name="Caveat_Emptor_Flag" type="CHAR" length="100" jt="1" />
+			<column name="Reg_SHO_S_Flag" type="CHAR" length="100" jt="1" />
+			<column name="Rule3210_Flag" type="CHAR" length="100" jt="1" />
+			<column name="Security_Status" type="VARCHAR" jt="12" />
+			<column name="Trading_Symbol" type="CHAR" length="100" jt="1" />
+			<index name="pk_Security" unique="PRIMARY_KEY" >
+				<column name="DIM_Security_ID" />
+			</index>
+		</table>
+		<table name="DIM_Trading_Venue" prior="Trading_Venue" >
+			<column name="DIM_Trading_Venue_Info_ID" prior="Trading_Venue_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Trading_Venue" type="CHAR" length="100" jt="1" />
+			<index name="pk_Trading_Info" unique="PRIMARY_KEY" >
+				<column name="DIM_Trading_Venue_Info_ID" />
+			</index>
+		</table>
+		<table name="Entity" />
+		<table name="Fact Table" prior="Entity_0" >
+			<column name="Fact_Company_Trading_Info" type="CHAR" length="100" jt="1" />
+			<column name="Fact_ID" type="INT" jt="4" mandatory="y" />
+			<column name="DIM_Date_ID" prior="Date_ID" type="INT" jt="4" mandatory="y" />
+			<column name="DIM_Security_ID" prior="Security_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Trading_Venue_Info_ID" prior="Trading_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Share_Volume" type="INT" jt="4" />
+			<column name="Dollar_Volume" type="DECIMAL" length="30" decimal="20" jt="3" />
+			<column name="OTC_Link_Exec_Count" type="INT" jt="4" />
+			<column name="OTC_Link_Share_Volume" type="INT" jt="4" />
+			<column name="Trade_Count" type="INT" jt="4" />
+			<column name="ShortInterest_Shares" type="INT" jt="4" />
+			<column name="MMID_Count" type="INT" jt="4" />
+			<column name="BFC_MMID" type="INT" jt="4" />
+			<column name="Closing_Best_Bid" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Closing_Best_Ask" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Shares_Outstanding" type="DECIMAL" length="16" decimal="1" jt="3" />
+			<column name="InsideBA_MidPrice" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Open_Price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="High_Price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Low_Price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Last_Price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Previous_Close_Price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="DIM_Closing_Best_Bid_Info_ID" prior="Closing_Best_Bid_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="DIM_Closing_Best_Ask_Info_ID" prior="Closing_Best_Ask_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="DIM_OTC_Tier_Info_ID" prior="OTC_Tier_Info_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Closing_Inside_Bid_Price_Date" type="DATE" jt="91" />
+			<column name="Closing_Inside_Ask_Price_Date" type="DATE" jt="91" />
+			<column name="Previous_Close_Date" type="DATE" jt="91" />
+			<column name="Short_Interest_Date" type="DATE" jt="91" />
+			<column name="Closing_Best_Bid_Date" type="DATE" jt="91" />
+			<column name="Closing_Best_Ask_Date" type="DATE" jt="91" />
+			<column name="Shares_Outstanding_Date" type="DATE" jt="91" />
+			<column name="Change_Percentage" type="DECIMAL" length="4" decimal="4" jt="3" />
+			<column name="DIM_Location_ID" type="INT" jt="4" mandatory="y" />
+			<index name="pk_Fact Table" unique="PRIMARY_KEY" >
+				<column name="Fact_ID" />
+				<column name="DIM_Date_ID" />
+				<column name="DIM_Security_ID" />
+				<column name="Trading_Venue_Info_ID" />
+				<column name="DIM_Closing_Best_Ask_Info_ID" />
+				<column name="DIM_OTC_Tier_Info_ID" />
+				<column name="DIM_Location_ID" />
+			</index>
+			<index name="unq_Closing_Best_Bid_Info_ID" unique="UNIQUE_INDEX" >
+				<column name="DIM_Closing_Best_Bid_Info_ID" />
+			</index>
+			<fk name="fk_Fact Table_Date" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_Date_ID" pk="DIM_Date_ID" />
+			</fk>
+			<fk name="fk_Fact Table_Security" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Security" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_Security_ID" pk="DIM_Security_ID" />
+			</fk>
+			<fk name="fk_Fact Table_Trading_Info" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Trading_Venue" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Trading_Venue_Info_ID" pk="DIM_Trading_Venue_Info_ID" />
+			</fk>
+			<fk name="fk_Fact Table_Closing_Best_Bid_Info" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Closing_Best_Bid_Info" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_Closing_Best_Bid_Info_ID" pk="DIM_Closing_Best_Bid_Info_ID" />
+			</fk>
+			<fk name="fk_Fact Table_Closing_Best_Ask_Info" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Closing_Best_Ask_Info" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_Closing_Best_Ask_Info_ID" pk="DIM_Closing_Best_Ask_Info_ID" />
+			</fk>
+			<fk name="fk_Fact Table_OTC_Tier_Info" virtual="y" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_OTC_Tier_Info" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_OTC_Tier_Info_ID" pk="DIM_OTC_Tier_Info_ID" />
+			</fk>
+			<fk name="fk_Fact Table_DIM_Location" to_schema="OTC Market Transaction Data.INSTANCE" to_table="DIM_Location" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="DIM_Location_ID" pk="DIM_Location_ID" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-1b01" show_relation="columns" >
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Closing_Best_Ask_Info" color="C1D8EE" x="952" y="595" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Closing_Best_Bid_Info" color="C1D8EE" x="221" y="459" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Date" color="C1D8EE" x="51" y="68" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Location" color="C1D8EE" x="272" y="272" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_OTC_Tier_Info" color="C1D8EE" x="1088" y="306" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Security" color="C1D8EE" x="1156" y="51" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Trading_Venue" color="C1D8EE" x="867" y="68" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="Fact Table" color="C1D8EE" x="544" y="136" />
+	</layout>
+</project>
