@@ -61,7 +61,6 @@
 			<column name="Rule3210_Flag" type="CHAR" length="100" jt="1" />
 			<column name="Security_Status" type="VARCHAR" jt="12" />
 			<column name="Trading_Symbol" type="CHAR" length="100" jt="1" />
-			<column name="Security_Description" type="CHAR" length="500" jt="1" />
 			<index name="pk_Security" unique="PRIMARY_KEY" >
 				<column name="DIM_Security_ID" />
 			</index>
@@ -149,7 +148,7 @@
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Closing_Best_Bid_Info" color="C1D8EE" x="221" y="459" />
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Date" color="C1D8EE" x="51" y="68" />
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Location" color="C1D8EE" x="272" y="272" />
-		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_OTC_Tier_Info" color="C1D8EE" x="1071" y="357" />
+		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_OTC_Tier_Info" color="C1D8EE" x="1088" y="306" />
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Security" color="C1D8EE" x="1156" y="51" />
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="DIM_Trading_Venue" color="C1D8EE" x="867" y="68" />
 		<entity schema="OTC Market Transaction Data.INSTANCE" name="Fact Table" color="C1D8EE" x="544" y="136" />

@@ -1,0 +1,110 @@
+CREATE SCHEMA IF NOT EXISTS "otc";
+
+CREATE  TABLE "otc".dim_closing_best_ask_info ( 
+	dim_closing_best_ask_info_id integer  NOT NULL  ,
+	bestask_source       varchar    ,
+	CONSTRAINT pk_closing_best_ask_info PRIMARY KEY ( dim_closing_best_ask_info_id )
+ );
+
+CREATE  TABLE "otc".dim_closing_best_bid_info ( 
+	dim_closing_best_bid_info_id integer  NOT NULL  ,
+	bestbid_source       varchar    ,
+	CONSTRAINT pk_closing_best_bid_info PRIMARY KEY ( dim_closing_best_bid_info_id )
+ );
+
+CREATE  TABLE "otc".dim_date ( 
+	dim_date_id          integer  NOT NULL  ,
+	date_original_format varchar    ,
+	date_iso_format      date    ,
+	"year"               varchar    ,
+	"month"              varchar    ,
+	quarter              varchar    ,
+	day_number           integer    ,
+	monthname            char(100)    ,
+	day_name             char(100)    ,
+	CONSTRAINT pk_date PRIMARY KEY ( dim_date_id )
+ );
+
+CREATE  TABLE "otc".dim_location ( 
+	dim_location_id      integer  NOT NULL  ,
+	country              char(100)    ,
+	"state"              char(100)    ,
+	CONSTRAINT pk_dim_location PRIMARY KEY ( dim_location_id )
+ );
+
+CREATE UNIQUE INDEX unq_country ON "otc".dim_location ( country );
+
+CREATE  TABLE "otc".dim_otc_tier_info ( 
+	dim_otc_tier_info_id integer  NOT NULL  ,
+	otc_tier_name        varchar    ,
+	"dad/pal_s"          varchar    ,
+	tier_id              integer    ,
+	CONSTRAINT pk_otc_tier_info PRIMARY KEY ( dim_otc_tier_info_id )
+ );
+
+CREATE  TABLE "otc".dim_security ( 
+	dim_security_id      integer  NOT NULL  ,
+	company_id           integer    ,
+	cusip_no             char(100)    ,
+	issue                char(100)    ,
+	security_type        varchar    ,
+	security_class       char(100)    ,
+	caveat_emptor_flag   char(100)    ,
+	reg_sho_s_flag       char(100)    ,
+	rule3210_flag        char(100)    ,
+	security_status      varchar    ,
+	trading_symbol       char(100)    ,
+	security_description char(500)    ,
+	CONSTRAINT pk_security PRIMARY KEY ( dim_security_id )
+ );
+
+CREATE  TABLE "otc".dim_trading_venue ( 
+	dim_trading_venue_info_id integer  NOT NULL  ,
+	trading_venue        char(100)    ,
+	CONSTRAINT pk_trading_info PRIMARY KEY ( dim_trading_venue_info_id )
+ );
+
+CREATE  TABLE "otc".entity ( 
+ );
+
+CREATE  TABLE "otc".fact_table ( 
+	fact_company_trading_info char(100)    ,
+	fact_id              integer  NOT NULL  ,
+	dim_date_id          integer  NOT NULL  ,
+	dim_security_id      integer  NOT NULL  ,
+	trading_venue_info_id integer  NOT NULL  ,
+	share_volume         integer    ,
+	dollar_volume        numeric(30,20)    ,
+	otc_link_exec_count  integer    ,
+	otc_link_share_volume integer    ,
+	trade_count          integer    ,
+	shortinterest_shares integer    ,
+	mmid_count           integer    ,
+	bfc_mmid             integer    ,
+	closing_best_bid     numeric(11,5)    ,
+	closing_best_ask     numeric(11,5)    ,
+	shares_outstanding   numeric(16,1)    ,
+	insideba_midprice    numeric(11,5)    ,
+	open_price           numeric(11,5)    ,
+	high_price           numeric(11,5)    ,
+	low_price            numeric(11,5)    ,
+	last_price           numeric(11,5)    ,
+	previous_close_price numeric(11,5)    ,
+	dim_closing_best_bid_info_id integer  NOT NULL  ,
+	dim_closing_best_ask_info_id integer  NOT NULL  ,
+	dim_otc_tier_info_id integer  NOT NULL  ,
+	closing_inside_bid_price_date date    ,
+	closing_inside_ask_price_date date    ,
+	previous_close_date  date    ,
+	short_interest_date  date    ,
+	closing_best_bid_date date    ,
+	closing_best_ask_date date    ,
+	shares_outstanding_date date    ,
+	change_percentage    numeric(4,4)    ,
+	dim_location_id      integer  NOT NULL  ,
+	CONSTRAINT pk_fact_table PRIMARY KEY ( fact_id, dim_date_id, dim_security_id, trading_venue_info_id, dim_closing_best_ask_info_id, dim_otc_tier_info_id, dim_location_id )
+ );
+
+CREATE UNIQUE INDEX unq_closing_best_bid_info_id ON "otc".fact_table ( dim_closing_best_bid_info_id );
+
+ALTER TABLE "otc".fact_table ADD CONSTRAINT fk_fact_table_dim_location FOREIGN KEY ( dim_location_id ) REFERENCES "otc".dim_location( dim_location_id );
