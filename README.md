@@ -44,38 +44,91 @@ II. Give the requirements and any missing requirements you have found
 -  Stochastic Oscillator: This momentum indicator compares a particular closing price of a security to a range of its prices over a certain period of time. The sensitivity of the oscillator to market movements is reducible by adjusting that time period or by taking a moving average of the result. 
  
 2)	Business Impact
+
+Risks:
  
- You will need to consider any risks, cost, and benefits that are related to this project.  How the persona, company will benefit from it? 
- 
-[It is useful if you can provide an estimated impact of your target/moonshot analysis. If things go exactly as planned, how much does your company beneﬁt? If things go much better than planned, how much does your company beneﬁt?]
- 
+- Market Risk: The potential for losses due to adverse movements in market prices, including factors such as volatility, economic events, and changes in investor sentiment.
+
+- Credit Risk: The risk of financial loss arising from the failure of a counterparty to fulfill its contractual obligations, such as defaulting on a loan or failing to make a payment in a derivative transaction.
+
+- Liquidity Risk: The risk of being unable to execute trades or liquidate positions in a timely manner without causing significant price movements, particularly in markets with low trading volumes or limited market depth.
+
+- Operational Risk: The risk of losses resulting from inadequate or failed internal processes, systems, or human error, including issues related to data management, technology failures, or regulatory compliance.
+
+- Counterparty Risk: The risk that the other party in a financial transaction will not fulfill its obligations, such as delivering securities or making payments, leading to financial losses or disruptions in trading activities
+
+ Benefits:
+
+ - Market Understanding: Analyzing OTC data can provide a deeper understanding of market dynamics, including trading volume, price movements, and liquidity. This understanding can help the persona or company make more informed trading decisions.
+
+ - Risk Management: By analyzing OTC data, the persona or company can identify potential risks, such as volatility or counterparty risk, and take appropriate measures to mitigate them. This could include diversifying portfolios, setting stop-loss levels, or hedging strategies.
+
+ - Identifying Opportunities: OTC data analysis can uncover trading opportunities that may not be apparent from traditional market data sources. This could include identifying undervalued assets, detecting patterns or trends, or spotting arbitrage opportunities.
+
+ - Customized Trading Strategies: Analyzing OTC data allows for the development of customized trading strategies tailored to the persona's or company's specific needs and risk tolerance. This could involve algorithmic trading, quantitative analysis, or other advanced trading techniques.
+
  
 3)	Business Persona 
  
-Who are going to be the people who use the system? Who are the actors of the system?  
+- Technical Analysts​
+
+- Stakeholders ​
+
+- Investors​
+
+- Companies involved in OTC trading ​
+
+- Financial Analysts 
 
 4)	Data
 The data sources that you are going to use and the metadata associated with them. 
- 
- 
-[Tell us (at least approximately) how large your dataset is. Highlight both the strengths and weaknesses of your dataset(s).]
- 
- 
+- OTC Data and data dictionary provided by Professor Jefferson
+- The data set is about 1.5 GB. 
+
+Strengths: Historic, Granularity and Diverse ​
+
+Weakness: Data availability, large dataset
+
 5)	Methods
 In this section, we will highlight some of the key tools and elements of our tech stack that we will be using for this project. As we learn and build upon our skills during this program, we hope to add additional tools to this section and improve upon some of our initial assumptions.
 
+- Utilized Google Collab as a code editor​
+
+- GitHub to store and organize all our deliverables (Version Control)​
+
+- Visual Studio Code as a code editor and to support GitHub ​
+
+- Python Script to ingest data into Azure Blob​
+
+- Dimensional Modeling for schema
+
+- Python Script for ETL
+
 6)	Data Tools 
-Data Storage: What are the data storages that you are going to use.
-For data storage, we are using Microsoft Azure Blob container.
-First we set up the adaptor in Google Colab. Next, we created a container named otcgroup6 in Azure Blob. Then we copied the connection string from the access keys in Azure to the Google Colab workstation. Those three are needed for the data ingestion.
-We then uploaded the downloaded zip data file to Google Drive to make ingestion into Azure easier.
+Data Storage: Microsoft Azure Blob for cloud storage (containers)
+
+ 
+Data Processing: 
+- First we set up the adaptor in Google Colab. Next, we created a container named otcgroup6 in Azure Blob. Then we copied the connection string from the access keys in Azure to the Google Colab workstation. Those three are needed for the data ingestion.
+- We then uploaded the downloaded zip data file to Google Drive to make ingestion into Azure easier.
 Using the python script, the zip file from Google Drive was successfully uploaded into Azure Blob.  
  
-Data Processing: How are you going to process/ingest the data? 
- 
-Data Orchestration: Are you using any type of tools to automate your data pipeline
+Data Orchestration: 
+- Using python script, extracted the uploaded data in Azure Blob and made a copy of the data frame (extraction)​
+
+- Performed data cleaning and transformation (transformation)​ using hand coded python script
+
+- Loaded the cleaned data into BigQuery using the python script
+
+- Created a csv file of the cleaned dataset
  
 7)	Interface
-The final interface will be a web-based application where the Persona can visualize the results.  People should be able also to connect to your  data using Tableau/PowerBI and do their own analysis.
-![image](https://github.com/ktenzin1/CIS4400_Group_Project/assets/137533073/4d89f825-99a6-4f00-bd49-1911e35fd8b7)
+Tableau Public was used for data visualization to study the following technical indicators: Ichimoku Cloud, Rate of Change, Supertrend, Simple Moving Average, Momentum Indicators, Money Flow Index (MFI), Relative Strength Index (RSI), and Stochastic Oscillator. 
+
+Link for Tableau Public dashboards:
+https://public.tableau.com/app/profile/karma.yangchen.tenzin/viz/IchihimokuCloud/Dashboard1
+https://public.tableau.com/views/roc_17152893719480/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link
+https://public.tableau.com/app/profile/fatima.tariq6857/viz/OTCIndicators/Dashboard1
+
+
 
