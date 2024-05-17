@@ -100,7 +100,7 @@ In this section, we will highlight some of the key tools and elements of our tec
 
 - Python Script to ingest data into Azure Blob​
 
-- Dimensional Modeling for schema
+- DbSchema for Dimensional Modeling for schema
 
 - Python Script for ETL
 
