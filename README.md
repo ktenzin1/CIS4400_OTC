@@ -3,7 +3,7 @@ Technical Analysis of the OTC Market and Applying Knowledge and Skills learnt fr
 
 1)	Business Problem
    
-I. Brief Description of the OTC Markets Group 
+I. Brief Description of the OTC Markets Group: 
 The Over-the-counter (OTC) market is a market to connect investors with companies to trade securities that are not listed on major exchange venues like the New York Stock Exchange or the NASDAQ. About 12000 U.S and global securities are traded on the OTC market. The OTC website states, "We enable investors to easily trade through the broker of their choice and empower companies to improve the quality of information available for their investors". 
 
 According to the OTC website, securities from the following industries are traded on the OTC market "financial services, metals & mining, oil & gas, pharmaceuticals & biotechnology, healthcare, telecommunications, technology, retail, media, utilities, and many more".
