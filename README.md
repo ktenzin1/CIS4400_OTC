@@ -1,4 +1,4 @@
-# CIS4400_Group_Project
+# CIS4400_OTC
 Technical Analysis of the OTC Market and Applying Knowledge and Skills learnt from Professor Jefferson in CIS 4400 to do a real-world project
 
 1)	Business Problem
