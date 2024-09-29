@@ -1,6 +1,6 @@
 # CIS4400_OTC
 Technical Analysis of the OTC Market and Applying Knowledge and Skills learnt from Professor Jefferson in CIS 4400 to do a real-world project. 
-This is a data science project where my group and I explored the OTC market data, and built an ETL pipeline using Python, Azure and Google BigQuery. We then used tableau to analyze four technical indicators: Ichimoku Cloud, Rate of Change, Relative Strength Index (RSI), and Stochastic Oscillator for the OTC securities.
+This is a data science project where my group and I explored the OTC market data, and built an ETL pipeline using Python, SQL for star schema dimensional modeling, Azure and Google BigQuery. We then used tableau to analyze four technical indicators: Ichimoku Cloud, Rate of Change, Relative Strength Index (RSI), and Stochastic Oscillator for the OTC securities.
 
 1. Business Problem
    
