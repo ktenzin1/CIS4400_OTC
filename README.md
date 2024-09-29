@@ -1,7 +1,8 @@
 # CIS4400_OTC
-Technical Analysis of the OTC Market and Applying Knowledge and Skills learnt from Professor Jefferson in CIS 4400 to do a real-world project
+Technical Analysis of the OTC Market and Applying Knowledge and Skills learnt from Professor Jefferson in CIS 4400 to do a real-world project. 
+This is a data science project where my group and I explored the OTC market data, and built an ETL pipeline using Python, Azure and Google BigQuery. We then used tableau to analyze four technical indicators: Ichimoku Cloud, Rate of Change, Relative Strength Index (RSI), and Stochastic Oscillator for the OTC securities.
 
-1)	Business Problem
+1. Business Problem
    
 I. Brief Description of the OTC Markets Group: 
 The Over-the-counter (OTC) market is a market to connect investors with companies to trade securities that are not listed on major exchange venues like the New York Stock Exchange or the NASDAQ. About 12000 U.S and global securities are traded on the OTC market. The OTC website states, "We enable investors to easily trade through the broker of their choice and empower companies to improve the quality of information available for their investors". 
@@ -10,11 +11,11 @@ According to the OTC website, securities from the following industries are trade
 
 The total annual dollar volume was $507 billion as of December 31, 2022.
 
-II. Give the requirements and any missing requirements you have found
-1. Breakdown per year, quarter, month, 
+II. Requirements and any missing requirements we have found
+1. Breakdown per year, quarter, month 
 2. Breakdown by sector, by security type
-3. You are required to do Technical Analysis (Use the following library https://github.com/bukosabino/ta)
-4. On the dashboard, for each security, I need to see technical indicators.
+3. Technical Analysis (Used the following library https://github.com/bukosabino/ta)
+4. On the dashboard, for each security, we can see technical indicators.
 
 1.  Breakdown per Year, Quarter, Month:  
 - This involves examining market data over different periods to identify trends and patterns. A  yearly analysis might show long-term market trends, while a quarterly and monthly analysis can reveal shorter-term fluctuations and seasonal effects. 
@@ -81,7 +82,7 @@ Risks:
 - Financial Analysts 
 
 4)	Data
-The data sources that you are going to use and the metadata associated with them. 
+The data sources that we used and the metadata associated with them. 
 - OTC Data and data dictionary provided by Professor Jefferson
 - The data set is about 1.5 GB. 
 
@@ -90,7 +91,7 @@ Strengths: Historic, Granularity and Diverse ​
 Weakness: Data availability, large dataset
 
 5)	Methods
-In this section, we will highlight some of the key tools and elements of our tech stack that we will be using for this project. As we learn and build upon our skills during this program, we hope to add additional tools to this section and improve upon some of our initial assumptions.
+In this section, we will highlight some of the key tools and elements of our tech stack that we used for this project. 
 
 - Utilized Google Collab as a code editor​
 
@@ -106,7 +107,6 @@ In this section, we will highlight some of the key tools and elements of our tec
 
 6)	Data Tools 
 Data Storage: Microsoft Azure Blob for cloud storage (containers)
-
  
 Data Processing: 
 - First we set up the adaptor in Google Colab. Next, we created a container named otcgroup6 in Azure Blob. Then we copied the connection string from the access keys in Azure to the Google Colab workstation. Those three are needed for the data ingestion.
@@ -116,14 +116,14 @@ Using the python script, the zip file from Google Drive was successfully uploade
 Data Orchestration: 
 - Using python script, extracted the uploaded data in Azure Blob and made a copy of the data frame (extraction)​
 
-- Performed data cleaning and transformation (transformation)​ using hand coded python script
+- Performed data cleaning and transformation (transformation)​ using python script
 
 - Loaded the cleaned data into BigQuery using the python script
 
 - Created a csv file of the cleaned dataset
  
 7)	Interface
-Tableau Public was used for data visualization to study the following technical indicators: Ichimoku Cloud, Rate of Change, Supertrend, Simple Moving Average, Momentum Indicators, Money Flow Index (MFI), Relative Strength Index (RSI), and Stochastic Oscillator. 
+Tableau Public was used for data visualization to study the following technical indicators: Ichimoku Cloud, Rate of Change, Relative Strength Index (RSI), and Stochastic Oscillator. 
 
 Link for Tableau Public dashboards:
 https://public.tableau.com/app/profile/karma.yangchen.tenzin/viz/IchihimokuCloud/Dashboard1
